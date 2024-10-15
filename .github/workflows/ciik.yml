@@ -19,12 +19,12 @@ jobs:
        cd bign
        python gofile.py url.txt
        cd ..
-       Compress-Archive bign bign.zip
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: irixHDD
-        path: ${{github.workspace}}/bign.zip
+        path: ${{github.workspace}}/bign
 
 
 
