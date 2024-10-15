@@ -8,26 +8,22 @@ jobs:
   build:
 
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
     - name: install_dependencies
       run: |
-       pip install -r requirements.txt --break-system-packages
+       pip install -r requirements.txt 
        cd bign
        python3 gofile.py url.txt
        cd ..
-       tar czf bign.tar.gz bign
+       Compress-Archive bign bign.zip
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: irixHDD
-        path: ${{github.workspace}}/bign.tar.gz
+        path: ${{github.workspace}}/bign.zip
 
 
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@2.9.0
-      with:
-       repo_token: ${{ secrets.GITHUB_TOKEN }}
-       file: ${{github.workspace}}/bign.tar.gz
+
         
