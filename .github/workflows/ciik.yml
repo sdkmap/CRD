@@ -15,7 +15,7 @@ jobs:
       run: |
        pip install -r requirements.txt 
        cd bign
-       python3 gofile.py url.txt
+       python gofile.py url.txt
        cd ..
        Compress-Archive bign bign.zip
     - name: Upload artifact
